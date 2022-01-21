@@ -39,6 +39,8 @@ router.get('/success', async (req, res, next) => {
   res.redirect('/')*/
   try {
     const charge = req.body
+    console.log('req.body')
+    console.log(charge)
     const isValid = await opennodeController.signatureIsValid(charge)
 
     if (isValid) {
