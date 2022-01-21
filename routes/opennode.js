@@ -36,7 +36,12 @@ router.get('/success', async (req, res, next) => {
   console.log('get success')
   app.locals.isPaid = true
   console.log(res.locals.isPaid)
-  res.redirect('/')
+  res.render('index', {
+    title: process.env.LAPP_NAME,
+    embed: process.env.VIDEO_EMBED,
+    currency: typeof process.env.CURRENCY !== 'undefined' ? process.env.CURRENCY : 'sats',
+    minPayment: process.env.MIN_PAYMENT
+  })
   /*try {
     const charge = req.body
     const isValid = await opennodeController.signatureIsValid(charge)

@@ -5,9 +5,9 @@ require('dotenv').config()
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  console.log('test')
-  /*res.locals.isPaid = true*/
-  console.log(app.locals.isPaid)
+  /*console.log('test')
+  res.locals.isPaid = true
+  console.log(app.locals.isPaid)*/
   res.render('index', {
     title: process.env.LAPP_NAME,
     embed: process.env.VIDEO_EMBED,
