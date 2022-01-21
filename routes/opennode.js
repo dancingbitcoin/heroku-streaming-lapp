@@ -26,7 +26,7 @@ router.post('/callback', async (req, res, next) => {
     if (isValid) {
       console.log('Payment received at OpenNode')
       req.session.isPaid = true
-      console.log(res.locals.isPaid)
+      console.log(req.session.isPaid)
     }
   } catch (err) {
     console.log('error in callback')
