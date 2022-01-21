@@ -44,6 +44,7 @@ router.get('/success', async (req, res, next) => {
       res.redirect('/')
     }
   } catch (err) {
+    console.log('/success')
     console.error(err)
   }
 })
