@@ -27,7 +27,7 @@ router.post('/callback', async (req, res, next) => {
       console.log('Payment received at OpenNode')
       req.session.isPaid = true
       console.log(req.session.isPaid)
-      res.redirect('/')
+      res.render('../views/index.ejs')
     }
   } catch (err) {
     console.log('error in callback')
@@ -35,7 +35,7 @@ router.post('/callback', async (req, res, next) => {
   }
 })
 
-router.get('/callback', (req, res, next) => {
+router.get('/success', (req, res, next) => {
   console.log('get success')
   /*req.session.isPaid = true
   console.log(res.locals.isPaid)*/
