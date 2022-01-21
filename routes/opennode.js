@@ -34,7 +34,7 @@ router.post('/callback', async (req, res, next) => {
   }
 })
 
-router.get('/callback', async (req, res, next) => {
+router.get('/callback', (req, res, next) => {
   console.log('get success')
   /*req.session.isPaid = true
   console.log(res.locals.isPaid)*/
