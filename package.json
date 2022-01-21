@@ -14,6 +14,6 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "opennode": "^1.2.1",
-    "express-session":"^4.17.2"
+    "express-session":"^1.17.2"
   }
 }
