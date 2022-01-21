@@ -23,9 +23,8 @@ router.post('/callback', async (req, res, next) => {
 
     if (isValid) {
       console.log('Payment received at OpenNode')
-      res.locals.isPaid = true
+      req.session.isPaid = true
       console.log(res.locals.isPaid)
-      res.redirect('/')
     }
   } catch (err) {
     console.error(err)
@@ -35,9 +34,9 @@ router.post('/callback', async (req, res, next) => {
 router.get('/success', async (req, res, next) => {
   console.log('get success')
   /*req.session.isPaid = true
-  console.log(res.locals.isPaid)
-  res.redirect('/')*/
-  try {
+  console.log(res.locals.isPaid)*/
+  res.redirect('/')
+  /*try {
     const charge = req.body
     console.log('req.body')
     console.log(charge)
@@ -51,7 +50,7 @@ router.get('/success', async (req, res, next) => {
   } catch (err) {
     console.log('/success')
     console.error(err)
-  }
+  }*/
 })
 
 module.exports = router
