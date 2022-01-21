@@ -41,7 +41,7 @@ router.get('/success', async (req, res, next) => {
       console.log('Payment received at OpenNode')
       res.locals.isPaid = true
       console.log(res.locals.isPaid)
-      res.redirect('../')
+      res.redirect('/')
     }
   } catch (err) {
     console.error(err)
