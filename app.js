@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const session = require('express-session');
 
 const indexRouter = require('./routes/index')
 const opennodeRouter = require('./routes/opennode')
@@ -17,6 +18,18 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(
+  session({
+    secret: 'my_secret_key',
+    resave: false,
+    saveUninitialized: false,
+  })
+)
+
+app.use((req, res, next) => {
+  res.locals.isPaid = req.session.isPaid
+  next()
+})
 
 app.use('/', indexRouter)
 app.use('/pay', opennodeRouter)

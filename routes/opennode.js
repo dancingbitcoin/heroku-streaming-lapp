@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 const opennodeController = require('../controllers/opennode')
-require('dotenv').config()
 
 /* GET checkout page */
 router.get('/', async (req, res, next) => {
@@ -35,14 +34,9 @@ router.post('/callback', async (req, res, next) => {
 
 router.get('/success', async (req, res, next) => {
   console.log('get success')
-  app.locals.isPaid = true
+  req.session.isPaid = true
   console.log(res.locals.isPaid)
-  res.render('index', {
-    title: process.env.LAPP_NAME,
-    embed: process.env.VIDEO_EMBED,
-    currency: typeof process.env.CURRENCY !== 'undefined' ? process.env.CURRENCY : 'sats',
-    minPayment: process.env.MIN_PAYMENT
-  })
+  res.redirect('/')
   /*try {
     const charge = req.body
     const isValid = await opennodeController.signatureIsValid(charge)
