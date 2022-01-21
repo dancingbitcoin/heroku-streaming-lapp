@@ -34,7 +34,7 @@ router.post('/callback', async (req, res, next) => {
 
 router.get('/success', async (req, res, next) => {
   console.log('get success')
-  res.locals.isPaid = true
+  app.locals.isPaid = true
   console.log(res.locals.isPaid)
   res.redirect('/')
   /*try {
