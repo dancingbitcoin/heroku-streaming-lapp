@@ -37,7 +37,7 @@ router.get('/success', async (req, res, next) => {
   res.locals.isPaid = true
   console.log(res.locals.isPaid)
   res.redirect('/')
-  try {
+  /*try {
     const charge = req.body
     const isValid = await opennodeController.signatureIsValid(charge)
 
@@ -50,7 +50,7 @@ router.get('/success', async (req, res, next) => {
   } catch (err) {
     console.log('/success')
     console.error(err)
-  }
+  }*/
 })
 
 module.exports = router
