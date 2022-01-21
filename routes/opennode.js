@@ -32,4 +32,20 @@ router.post('/callback', async (req, res, next) => {
   }
 })
 
+router.get('/success', async (req, res, next) => {
+  try {
+    const charge = req.body
+    const isValid = await opennodeController.signatureIsValid(charge)
+
+    if (isValid) {
+      console.log('Payment received at OpenNode')
+      res.locals.isPaid = true
+      console.log(res.locals.isPaid)
+      res.redirect('../')
+    }
+  } catch (err) {
+    console.error(err)
+  }
+})
+
 module.exports = router

@@ -6,6 +6,7 @@ const logger = require('morgan')
 
 const indexRouter = require('./routes/index')
 const opennodeRouter = require('./routes/opennode')
+const successRouter = require('./routes/success')
 const app = express()
 
 // view engine setup
