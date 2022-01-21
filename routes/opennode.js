@@ -33,6 +33,9 @@ router.post('/callback', async (req, res, next) => {
 })
 
 router.get('/success', async (req, res, next) => {
+  res.locals.isPaid = true
+  console.log(res.locals.isPaid)
+  res.redirect('/')
   try {
     const charge = req.body
     const isValid = await opennodeController.signatureIsValid(charge)
