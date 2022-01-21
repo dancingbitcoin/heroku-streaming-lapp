@@ -12,7 +12,7 @@ const createCharge = async ({ amount }) => {
         amount: parseInt(amount),
         currency: process.env.CURRENCY,
         callback_url: typeof process.env.CALLBACK_URL !== 'undefined' ? process.env.CALLBACK_URL : `${process.env.HEROKU_URL}/pay/callback`,
-        success_url: typeof process.env.HEROKU_URL !== 'undefined' ? process.env.HEROKU_URL : ''
+        success_url: typeof process.env.SUCCESS_URL !== 'undefined' ? process.env.SUCCESS_URL : process.env.HEROKU_URL
       })
       return charge
     } else {
@@ -20,7 +20,7 @@ const createCharge = async ({ amount }) => {
         description: `${process.env.LAPP_NAME}: Charge ${amount} sats`,
         amount: parseInt(amount),
         callback_url: typeof process.env.CALLBACK_URL !== 'undefined' ? process.env.CALLBACK_URL : `${process.env.HEROKU_URL}/pay/callback`,
-        success_url: typeof process.env.HEROKU_URL !== 'undefined' ? process.env.HEROKU_URL : ''
+        success_url: typeof process.env.SUCCESS_URL !== 'undefined' ? process.env.SUCCESS_URL : process.env.HEROKU_URL
       })
       return charge
     }

@@ -14,7 +14,7 @@
     <% if(locals.isPaid) { %>
       <p>Thank you for using Lightning!</p>
     <% } else { %>
-      <p>please try Lightning!</p>
+      <p>please try Lightning! <%= locals.isPaid %></p>
     <% } %>
   </body>
 </html>
