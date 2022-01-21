@@ -11,5 +11,8 @@
     <p>
       <a href="/pay" target="_blank">Pay <%= minPayment %> <%= currency %> via Lightning</a>
     </p>
+    <% if(locals.isPaid) { %>
+      <p>Thank you for using Lightning!</p>
+    <% } %>
   </body>
 </html>
