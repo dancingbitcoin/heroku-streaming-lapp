@@ -24,6 +24,7 @@ router.post('/callback', async (req, res, next) => {
     if (isValid) {
       console.log('Payment received at OpenNode')
       res.locals.isPaid = true
+      console.log(res.locals.isPaid)
       res.redirect('/')
     }
   } catch (err) {
