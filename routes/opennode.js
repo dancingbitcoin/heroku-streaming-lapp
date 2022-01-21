@@ -19,6 +19,8 @@ router.get('/', async (req, res, next) => {
 router.post('/callback', async (req, res, next) => {
   try {
     const charge = req.body
+    console.log('req.body')
+    console.log(req.body)
     const isValid = await opennodeController.signatureIsValid(charge)
 
     if (isValid) {
@@ -27,6 +29,7 @@ router.post('/callback', async (req, res, next) => {
       console.log(res.locals.isPaid)
     }
   } catch (err) {
+    console.log('error in callback')
     console.error(err)
   }
 })
