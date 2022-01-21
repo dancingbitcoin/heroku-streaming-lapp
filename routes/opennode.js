@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const opennodeController = require('../controllers/opennode')
+require('dotenv').config()
 
 /* GET checkout page */
 router.get('/', async (req, res, next) => {
